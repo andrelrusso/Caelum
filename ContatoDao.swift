@@ -29,9 +29,9 @@ class ContatoDao: NSObject {
     func adiciona(_ contato:Contato){
         contatos.append(contato)
         
-        for contato in contatos{
-            print(contato)
-        }
+//        for contato in contatos{
+//            print(contato)
+//        }
     }
     
     func listaTodos() -> [Contato]{

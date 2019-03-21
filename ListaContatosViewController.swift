@@ -60,12 +60,6 @@ class ListaContatosViewController: UITableViewController {
         cell!.textLabel?.text = contato.nome
         
         return cell!
-        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-//
-//        // Configure the cell...
-//
-//        return cell
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -90,22 +84,34 @@ class ListaContatosViewController: UITableViewController {
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-//        if editingStyle == .delete {
-//            // Delete the row from the data source
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }    
+        let contatoSelecionado = dao.buscaContatoNaPosicao(indexPath.row)
+        self.exibeFormulario(contatoSelecionado)
+        //print ("Nome : \(contatoSelecionado.nome)")
+    }
+    
+    func exibeFormulario(_ contato:Contato)
+    {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let formulario = storyboard.instantiateViewController(withIdentifier: "Form-Contato") as! FormularioContatoViewController
+        
+        formulario.contato = contato
+        
+        self.navigationController?.pushViewController(formulario, animated: true)
+        
     }
     
 
-    /*
+    
     // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
+    /*override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+       
+    }*/
+    
 
     /*
     // Override to support conditional rearranging of the table view.
