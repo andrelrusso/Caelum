@@ -11,6 +11,7 @@ import UIKit
 class FormularioContatoViewController: UIViewController {
     
     var dao:ContatoDao
+    var contato:Contato!
     
     required init?(coder aDecoder: NSCoder) {
         self.dao = ContatoDao.sharedInstance()
@@ -21,20 +22,18 @@ class FormularioContatoViewController: UIViewController {
     @IBOutlet weak var telefone: UITextField!
     @IBOutlet weak var endereco: UITextField!
     @IBOutlet weak var site: UITextField!
-    @IBAction func pegaDadosDoFormulario(_ sender: AnyObject) {
-        let contato: Contato = Contato()
-        
+    
+    func pegaDadosDoFormulario() {
+        self.contato = Contato()
         contato.nome = self.nome.text!
         contato.telefone = self.telefone.text!
         contato.endereco = self.endereco.text!
         contato.site  = self.site.text!
-        
+    }
+    @IBAction func criaContato(){
+        self.pegaDadosDoFormulario()
         dao.adiciona(contato)
-        
-//        for cont in dao.contatos
-//        {
-//            print("Nome: \(contato.nome), Telefone: \(contato.telefone), Endereço: \(contato.endereco), Site: \(contato.site)")
-//        }
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     override func viewDidLoad() {
@@ -46,7 +45,5 @@ class FormularioContatoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
