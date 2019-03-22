@@ -8,10 +8,13 @@
 
 import UIKit
 
-class ListaContatosViewController: UITableViewController {
+class ListaContatosViewController: UITableViewController, FormularioContatoViewControllerDelegate {
     
     var dao:ContatoDao
     static let cellIdentifier = "Cell"
+    
+    var linhaDestaque: IndexPath?
+    
     
     required init?(coder aDecoder: NSCoder) {
         self.dao = ContatoDao.sharedInstance()
@@ -64,6 +67,17 @@ class ListaContatosViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.tableView.reloadData()
+        if let linha = linhaDestaque{
+            self.tableView.selectRow(at: linha, animated: true, scrollPosition: .middle)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+                self.tableView.deselectRow(at: linha, animated: true)
+                self.linhaDestaque = Optional.none
+                
+            }
+            
+        }
+        
     }
     
 
@@ -99,10 +113,20 @@ class ListaContatosViewController: UITableViewController {
         
         let formulario = storyboard.instantiateViewController(withIdentifier: "Form-Contato") as! FormularioContatoViewController
         
+        formulario.delegate = self
         formulario.contato = contato
         
         self.navigationController?.pushViewController(formulario, animated: true)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "FormSegue"{
+            
+            if let formulario = segue.destination as? FormularioContatoViewController{
+                formulario.delegate = self
+            }
+        }
     }
     
 
@@ -130,5 +154,19 @@ class ListaContatosViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: Delegate
+    
+    func contatoAtualizado(_ contato:Contato){
+        //print("contato atualizado: \(contato.nome)")
+        self.linhaDestaque = IndexPath(row: dao.buscaPosicaoDoContato(contato), section: 0)
+    }
+    
+    func contatoAdicionado(_ contato:Contato){
+        //print("contato adicionado: \(contato.nome)")
+        self.linhaDestaque = IndexPath(row: dao.buscaPosicaoDoContato(contato), section: 0)
+    }
+    
+    
 
 }

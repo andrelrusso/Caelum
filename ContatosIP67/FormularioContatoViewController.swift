@@ -12,6 +12,7 @@ class FormularioContatoViewController: UIViewController {
     
     var dao:ContatoDao
     var contato:Contato!
+    var delegate:FormularioContatoViewControllerDelegate?
     
     required init?(coder aDecoder: NSCoder) {
         self.dao = ContatoDao.sharedInstance()
@@ -22,6 +23,15 @@ class FormularioContatoViewController: UIViewController {
     @IBOutlet weak var telefone: UITextField!
     @IBOutlet weak var endereco: UITextField!
     @IBOutlet weak var site: UITextField!
+    
+    @IBAction func criaContato(){
+        self.pegaDadosDoFormulario()
+        dao.adiciona(contato)
+        
+        self.delegate?.contatoAdicionado(contato)
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    
     
     func pegaDadosDoFormulario() {
         if contato == nil {
@@ -39,15 +49,23 @@ class FormularioContatoViewController: UIViewController {
     func atualizaContato(){
         pegaDadosDoFormulario()
         
+        self.delegate?.contatoAtualizado(contato)
+        
         _ = self.navigationController?.popViewController(animated: true)
     }
     
+//    func atualizaContato(){
+//        pegaDadosDoFormulario()
+//        
+//        _ = self.navigationController?.popViewController(animated: true)
+//    }
     
-    @IBAction func criaContato(){
+    
+    /*@IBAction func criaContato(){
         self.pegaDadosDoFormulario()
         dao.adiciona(contato)
         _ = self.navigationController?.popViewController(animated: true)
-    }
+    }*/
 
     override func viewDidLoad() {
         super.viewDidLoad()

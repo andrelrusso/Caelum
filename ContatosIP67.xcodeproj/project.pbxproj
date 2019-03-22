@@ -16,6 +16,7 @@
 		4C90B9FB2241AFCB005A558E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C90B9F92241AFCB005A558E /* LaunchScreen.storyboard */; };
 		4C90BA072241C33A005A558E /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C90BA062241C33A005A558E /* Contato.m */; };
 		4C90BA0A2241CFAE005A558E /* ContatoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C90BA092241CFAE005A558E /* ContatoDao.swift */; };
+		4CFB26352244653500EAF22C /* protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB26342244653500EAF22C /* protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +29,11 @@
 		4C90B9F72241AFCB005A558E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C90B9FA2241AFCB005A558E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C90B9FC2241AFCB005A558E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C90BA042241C339005A558E /* ContatosIP67-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContatosIP67-Bridging-Header.h"; sourceTree = "<group>"; };
+		4C90BA042241C339005A558E /* ContatosIP67-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContatosIP67-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		4C90BA052241C33A005A558E /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
 		4C90BA062241C33A005A558E /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
 		4C90BA092241CFAE005A558E /* ContatoDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatoDao.swift; sourceTree = "<group>"; };
+		4CFB26342244653500EAF22C /* protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,16 +54,14 @@
 				4C08465A2243016D00576C04 /* ListaContatosViewController.swift */,
 			);
 			name = ViewControllers;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		4C90B9E12241AFCA005A558E = {
 			isa = PBXGroup;
 			children = (
-				4C084659224300D300576C04 /* ViewControllers */,
-				4C90BA082241C364005A558E /* Models */,
 				4C90B9EC2241AFCB005A558E /* ContatosIP67 */,
 				4C90B9EB2241AFCB005A558E /* Products */,
-				4C90BA042241C339005A558E /* ContatosIP67-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +76,10 @@
 		4C90B9EC2241AFCB005A558E /* ContatosIP67 */ = {
 			isa = PBXGroup;
 			children = (
+				4CFB2633224464F100EAF22C /* Protocols */,
+				4CFB2632224461EA00EAF22C /* Bridging */,
+				4C084659224300D300576C04 /* ViewControllers */,
+				4C90BA082241C364005A558E /* Models */,
 				4C90B9ED2241AFCB005A558E /* AppDelegate.swift */,
 				4C90B9F12241AFCB005A558E /* Main.storyboard */,
 				4C90B9F72241AFCB005A558E /* Assets.xcassets */,
@@ -94,6 +98,23 @@
 				4C90BA092241CFAE005A558E /* ContatoDao.swift */,
 			);
 			name = Models;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		4CFB2632224461EA00EAF22C /* Bridging */ = {
+			isa = PBXGroup;
+			children = (
+				4C90BA042241C339005A558E /* ContatosIP67-Bridging-Header.h */,
+			);
+			name = Bridging;
+			sourceTree = "<group>";
+		};
+		4CFB2633224464F100EAF22C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				4CFB26342244653500EAF22C /* protocols.swift */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +192,7 @@
 			files = (
 				4C90BA072241C33A005A558E /* Contato.m in Sources */,
 				4C90B9F02241AFCB005A558E /* FormularioContatoViewController.swift in Sources */,
+				4CFB26352244653500EAF22C /* protocols.swift in Sources */,
 				4C90BA0A2241CFAE005A558E /* ContatoDao.swift in Sources */,
 				4C08465B2243016D00576C04 /* ListaContatosViewController.swift in Sources */,
 				4C90B9F62241AFCB005A558E /* ContatosIP67.xcdatamodeld in Sources */,
