@@ -16,6 +16,7 @@
 		4C90B9FB2241AFCB005A558E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C90B9F92241AFCB005A558E /* LaunchScreen.storyboard */; };
 		4C90BA072241C33A005A558E /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C90BA062241C33A005A558E /* Contato.m */; };
 		4C90BA0A2241CFAE005A558E /* ContatoDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C90BA092241CFAE005A558E /* ContatoDao.swift */; };
+		4CC8D6972245A36C00ADAFBB /* GerenciadorDeAcoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC8D6962245A36C00ADAFBB /* GerenciadorDeAcoes.swift */; };
 		4CFB26352244653500EAF22C /* protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB26342244653500EAF22C /* protocols.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		4C90BA052241C33A005A558E /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
 		4C90BA062241C33A005A558E /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
 		4C90BA092241CFAE005A558E /* ContatoDao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatoDao.swift; sourceTree = "<group>"; };
+		4CC8D6962245A36C00ADAFBB /* GerenciadorDeAcoes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GerenciadorDeAcoes.swift; sourceTree = "<group>"; };
 		4CFB26342244653500EAF22C /* protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 				4C90BA052241C33A005A558E /* Contato.h */,
 				4C90BA062241C33A005A558E /* Contato.m */,
 				4C90BA092241CFAE005A558E /* ContatoDao.swift */,
+				4CC8D6962245A36C00ADAFBB /* GerenciadorDeAcoes.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -192,6 +195,7 @@
 			files = (
 				4C90BA072241C33A005A558E /* Contato.m in Sources */,
 				4C90B9F02241AFCB005A558E /* FormularioContatoViewController.swift in Sources */,
+				4CC8D6972245A36C00ADAFBB /* GerenciadorDeAcoes.swift in Sources */,
 				4CFB26352244653500EAF22C /* protocols.swift in Sources */,
 				4C90BA0A2241CFAE005A558E /* ContatoDao.swift in Sources */,
 				4C08465B2243016D00576C04 /* ListaContatosViewController.swift in Sources */,

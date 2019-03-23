@@ -26,6 +26,8 @@ class ListaContatosViewController: UITableViewController, FormularioContatoViewC
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(exibirMaisAcoes(gesture:)))
+        self.tableView.addGestureRecognizer(longPress)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -73,11 +75,27 @@ class ListaContatosViewController: UITableViewController, FormularioContatoViewC
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
                 self.tableView.deselectRow(at: linha, animated: true)
                 self.linhaDestaque = Optional.none
+            }
+        }
+        
+    }
+    
+    func exibirMaisAcoes(gesture: UIGestureRecognizer)
+    {
+        if gesture.state == .began{
+            
+            let ponto = gesture.location(in: self.tableView)
+            
+            if let indexPath = self.tableView.indexPathForRow(at: ponto){
                 
+                let contato = self.dao.buscaContatoNaPosicao(indexPath.row)
+                
+                let acoes = GerenciadorDeAcoes(do: contato)
+                
+                acoes.exibirAcoes(em: self)
             }
             
         }
-        
     }
     
 
