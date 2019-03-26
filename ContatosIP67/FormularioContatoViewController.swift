@@ -24,6 +24,8 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
     @IBOutlet weak var telefone: UITextField!
     @IBOutlet weak var endereco: UITextField!
     @IBOutlet weak var site: UITextField!
+    @IBOutlet weak var latitude: UITextField!
+    @IBOutlet weak var longitude: UITextField!
     
     @IBAction func criaContato(){
         self.pegaDadosDoFormulario()
@@ -62,12 +64,18 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
         self.telefone.layer.cornerRadius = 15.0
         self.endereco.layer.cornerRadius = 15.0
         self.site.layer.cornerRadius = 15.0
+        self.latitude.layer.cornerRadius = 15.0
+        self.longitude.layer.cornerRadius = 15.0
         self.nome.layer.borderWidth = 2.0
         self.telefone.layer.borderWidth = 2.0
         self.endereco.layer.borderWidth = 2.0
         self.site.layer.borderWidth = 2.0
+        self.latitude.layer.borderWidth = 2.0
+        self.longitude.layer.borderWidth = 2.0
         self.nome.layer.borderColor = UIColor.gray.cgColor
         self.telefone.layer.borderColor = UIColor.gray.cgColor
+        self.latitude.layer.borderColor = UIColor.gray.cgColor
+        self.longitude.layer.borderColor = UIColor.gray.cgColor
         self.endereco.layer.borderColor = UIColor.gray.cgColor
         self.site.layer.borderColor = UIColor.gray.cgColor
         self.imageView.layer.borderWidth = 1
