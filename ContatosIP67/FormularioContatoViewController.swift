@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class FormularioContatoViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -18,6 +19,9 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
         self.dao = ContatoDao.sharedInstance()
         super.init(coder: aDecoder)
     }
+    
+    
+    
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nome: UITextField!
@@ -35,17 +39,65 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
         _ = self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func buscarCoordenadas(sender: UIButton)
+    {
+        
+            if (self.endereco.text?.isEmpty)!
+            {
+                let alert = UIAlertController(title: "Erro de consistência", message:"Favor preencher o campo endereço", preferredStyle: .alert)
+                let acao = UIAlertAction(title:
+                    "OK", style: .default, handler:
+                    nil)
+                alert.addAction(acao)
+                self.present(alert, animated: true, completion: nil)
+                
+            }
+            
+            
+        let geocoder = CLGeocoder()
+        
+        geocoder.geocodeAddressString(self.endereco.text!) {(resultado, error) in
+            
+            if error == nil && (resultado?.count)! > 0 {
+                let placemark = resultado![0]
+                let coordenada = placemark.location!.coordinate
+                
+                self.latitude.text = coordenada.latitude.description
+                self.longitude.text = coordenada.longitude.description
+            
+            }
+        }
+    }
+    
     
     func pegaDadosDoFormulario() {
         if contato == nil {
             self.contato = Contato()
         }
-        contato.nome = self.nome.text!
-        contato.telefone = self.telefone.text!
-        contato.endereco = self.endereco.text!
-        contato.site  = self.site.text!
-        contato.foto  = self.imageView.image!
-
+//        if self.botaoAdicionaImage.backgroundImageForState(.Normal) != nil{
+//            self.contato.foto = self.botaoAdicionaImage.backgroundImageForState(.Normal)
+//        }
+        
+        
+        self.contato.nome = self.nome.text!
+        self.contato.telefone = self.telefone.text!
+        self.contato.endereco = self.endereco.text!
+        self.contato.site  = self.site.text!
+        
+        //Estava quebrando
+        //self.contato.foto  = imageView.image
+        
+        if let imagem = imageView.image
+        {
+            self.contato.foto  = imagem
+        }
+     
+        if let latitude = Double(self.latitude.text!){
+            self.contato.latitude = latitude as NSNumber
+        }
+        if let longitude = Double(self.longitude.text!){
+            self.contato.longitude = longitude as NSNumber
+        }
     }
     
     func atualizaContato(){
@@ -88,6 +140,8 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
             self.telefone.text = contato.telefone
             self.endereco.text = contato.endereco
             self.site.text = contato.site
+            self.longitude.text = contato.longitude?.description
+            self.latitude.text = contato.latitude?.description
             
             if let foto = self.contato.foto{
                     self.imageView.image = foto
