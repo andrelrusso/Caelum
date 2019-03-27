@@ -22,6 +22,7 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
     
     
     
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nome: UITextField!
@@ -41,19 +42,22 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
     
     @IBAction func buscarCoordenadas(sender: UIButton)
     {
+        self.loading.startAnimating()
+        sender.isEnabled = false
+        //sleep(4)
         
-            if (self.endereco.text?.isEmpty)!
-            {
-                let alert = UIAlertController(title: "Erro de consistência", message:"Favor preencher o campo endereço", preferredStyle: .alert)
-                let acao = UIAlertAction(title:
-                    "OK", style: .default, handler:
-                    nil)
-                alert.addAction(acao)
-                self.present(alert, animated: true, completion: nil)
-                
-            }
-            
-            
+        if (self.endereco.text?.isEmpty)!
+        {
+            let alert = UIAlertController(title: "Erro de consistência", message:"Favor preencher o campo endereço", preferredStyle: .alert)
+            let acao = UIAlertAction(title:
+                "OK", style: .default, handler:
+                nil)
+            alert.addAction(acao)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        
         let geocoder = CLGeocoder()
         
         geocoder.geocodeAddressString(self.endereco.text!) {(resultado, error) in
@@ -64,9 +68,12 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
                 
                 self.latitude.text = coordenada.latitude.description
                 self.longitude.text = coordenada.longitude.description
-            
+                
             }
         }
+        
+        self.loading.stopAnimating()
+        sender.isEnabled = true
     }
     
     
@@ -74,11 +81,6 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
         if contato == nil {
             self.contato = Contato()
         }
-//        if self.botaoAdicionaImage.backgroundImageForState(.Normal) != nil{
-//            self.contato.foto = self.botaoAdicionaImage.backgroundImageForState(.Normal)
-//        }
-        
-        
         self.contato.nome = self.nome.text!
         self.contato.telefone = self.telefone.text!
         self.contato.endereco = self.endereco.text!

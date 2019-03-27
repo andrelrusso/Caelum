@@ -125,13 +125,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Os4-vP-Bmr">
-                                <frame key="frameInset" minX="308" minY="431" width="37" height="34"/>
+                                <frame key="frameInset" minX="307" minY="431" width="37" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="gps"/>
                                 <connections>
                                     <action selector="buscarCoordenadasWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sIM-OG-ylw"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JqK-dG-S3x">
+                                <frame key="frameInset" minX="315" minY="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -146,6 +150,7 @@
                         <outlet property="endereco" destination="chr-mZ-jd0" id="7vM-mf-Rub"/>
                         <outlet property="imageView" destination="R3C-6J-5JZ" id="Xa1-ME-kvc"/>
                         <outlet property="latitude" destination="1tQ-uL-r7p" id="rn2-Ax-Kob"/>
+                        <outlet property="loading" destination="JqK-dG-S3x" id="oFz-Cl-8L5"/>
                         <outlet property="longitude" destination="63k-OT-tyd" id="L9F-8y-aQ6"/>
                         <outlet property="nome" destination="5d0-xW-8Fs" id="7T2-vk-SLz"/>
                         <outlet property="site" destination="Tb7-Zu-1Iy" id="GoJ-I4-oU8"/>
