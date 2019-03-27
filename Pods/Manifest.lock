@@ -1,0 +1,16 @@
+PODS:
+  - TPKeyboardAvoiding (1.3.2)
+
+DEPENDENCIES:
+  - TPKeyboardAvoiding
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - TPKeyboardAvoiding
+
+SPEC CHECKSUMS:
+  TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
+
+PODFILE CHECKSUM: 1fd1b2c7f8f2559a57aad94fc81771445bd1038e
+
+COCOAPODS: 1.6.1
