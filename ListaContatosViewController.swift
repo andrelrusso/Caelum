@@ -11,7 +11,7 @@ import UIKit
 class ListaContatosViewController: UITableViewController, FormularioContatoViewControllerDelegate {
     
     var dao:ContatoDao
-    static let cellIdentifier = "Cell"
+    static let cellIdentifier = "cell"
     
     var linhaDestaque: IndexPath?
     
@@ -56,14 +56,23 @@ class ListaContatosViewController: UITableViewController, FormularioContatoViewC
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let contato:Contato = self.dao.buscaContatoNaPosicao(indexPath.row)
         
-        var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: ListaContatosViewController.cellIdentifier)
+//        var cell:UITableViewCell? = tableView.dequeueReusableCell(withIdentifier: ListaContatosViewController.cellIdentifier)
+//        
+//        if cell == nil{
+//            cell = UITableViewCell(style: .default, reuseIdentifier: ListaContatosViewController.cellIdentifier)
+//        }
+//        
+//        cell!.textLabel?.text = contato.nome
+        
+        
+        var cell:TableTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ListaContatosViewController.cellIdentifier) as! TableTableViewCell?
         
         if cell == nil{
-            cell = UITableViewCell(style: .default, reuseIdentifier: ListaContatosViewController.cellIdentifier)
+            cell = TableTableViewCell(style: .default, reuseIdentifier: ListaContatosViewController.cellIdentifier)
         }
         
-        cell!.textLabel?.text = contato.nome
-        
+        cell!.fotoContato?.image = contato.foto
+        cell!.nomeContato?.text = contato.nome
         return cell!
     }
     
