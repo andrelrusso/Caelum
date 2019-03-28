@@ -67,7 +67,7 @@ class ContatoDao: CoreDataUtil {
             caelumSP.nome = "Caelum SP"
             caelumSP.endereco = "Sāo Paulo, SP, Rua Vergueiro, 3185"
             caelumSP.telefone = "01155712751"
-            caelumSP.site = "http://ww.caelum.com.br"
+            caelumSP.site = "http://www.caelum.com.br"
             caelumSP.latitude = -23.5883034
             caelumSP.longitude = -46.632369
             

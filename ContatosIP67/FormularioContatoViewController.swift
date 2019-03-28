@@ -34,12 +34,26 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
     
     @IBAction func criaContato(){
         self.pegaDadosDoFormulario()
+        
+        if (self.contato.nome?.isEmpty)!
+        {
+            let alert = UIAlertController(title: "Erro de consistência", message:"Favor preencher ao menos o campo nome", preferredStyle: .alert)
+            let acao = UIAlertAction(title:
+                "OK", style: .default, handler:
+                nil)
+            alert.addAction(acao)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+
+        
         dao.adiciona(contato)
         
         self.delegate?.contatoAdicionado(contato)
         _ = self.navigationController?.popViewController(animated: true)
         
         ContatoDao.sharedInstance().saveContext()
+        dao.carregaContatos()
     }
     
     @IBAction func buscarCoordenadas(sender: UIButton)
@@ -112,6 +126,7 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
         _ = self.navigationController?.popViewController(animated: true)
         
         ContatoDao.sharedInstance().saveContext()
+        dao.carregaContatos()
     }
     
     override func viewDidLoad()
@@ -133,7 +148,9 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
         self.nome.layer.borderColor = UIColor.gray.cgColor
         self.telefone.layer.borderColor = UIColor.gray.cgColor
         self.latitude.layer.borderColor = UIColor.gray.cgColor
+        self.latitude.isEnabled = false
         self.longitude.layer.borderColor = UIColor.gray.cgColor
+        self.longitude.isEnabled = false
         self.endereco.layer.borderColor = UIColor.gray.cgColor
         self.site.layer.borderColor = UIColor.gray.cgColor
         self.imageView.layer.borderWidth = 1
@@ -141,6 +158,9 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
         self.imageView.layer.borderColor = UIColor.black.cgColor
         self.imageView.layer.cornerRadius = self.imageView.frame.height/2
         self.imageView.clipsToBounds = true
+        
+        
+        
         if contato != nil{
             self.nome.text = contato.nome
             self.telefone.text = contato.telefone
