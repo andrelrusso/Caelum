@@ -38,6 +38,8 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
         
         self.delegate?.contatoAdicionado(contato)
         _ = self.navigationController?.popViewController(animated: true)
+        
+        ContatoDao.sharedInstance().saveContext()
     }
     
     @IBAction func buscarCoordenadas(sender: UIButton)
@@ -79,7 +81,7 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
     
     func pegaDadosDoFormulario() {
         if contato == nil {
-            self.contato = Contato()
+            self.contato = dao.novoContato()
         }
         self.contato.nome = self.nome.text!
         self.contato.telefone = self.telefone.text!
@@ -108,6 +110,8 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
         self.delegate?.contatoAtualizado(contato)
         
         _ = self.navigationController?.popViewController(animated: true)
+        
+        ContatoDao.sharedInstance().saveContext()
     }
     
     override func viewDidLoad()

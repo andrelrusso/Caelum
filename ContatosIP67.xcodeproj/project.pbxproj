@@ -10,6 +10,7 @@
 		38932849ED401875668A512D /* Pods_ContatosIP67.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBACF8DFB5AE383C30E963A /* Pods_ContatosIP67.framework */; };
 		4C08465B2243016D00576C04 /* ListaContatosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C08465A2243016D00576C04 /* ListaContatosViewController.swift */; };
 		4C3E1CB32249924100AD8011 /* ContatosNoMapaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3E1CB22249924100AD8011 /* ContatosNoMapaViewController.swift */; };
+		4C674A8F224C352E00284470 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C674A8E224C352E00284470 /* CoreDataUtil.swift */; };
 		4C90B9EE2241AFCB005A558E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C90B9ED2241AFCB005A558E /* AppDelegate.swift */; };
 		4C90B9F02241AFCB005A558E /* FormularioContatoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C90B9EF2241AFCB005A558E /* FormularioContatoViewController.swift */; };
 		4C90B9F32241AFCB005A558E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C90B9F12241AFCB005A558E /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		4C08465A2243016D00576C04 /* ListaContatosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaContatosViewController.swift; sourceTree = "<group>"; };
 		4C3E1CB22249924100AD8011 /* ContatosNoMapaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosNoMapaViewController.swift; sourceTree = "<group>"; };
 		4C3E1CB42249A91700AD8011 /* Vila Mariana.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Vila Mariana.gpx"; sourceTree = "<group>"; };
+		4C674A8E224C352E00284470 /* CoreDataUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtil.swift; sourceTree = "<group>"; };
 		4C90B9EA2241AFCB005A558E /* ContatosIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatosIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C90B9ED2241AFCB005A558E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C90B9EF2241AFCB005A558E /* FormularioContatoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FormularioContatoViewController.swift; path = ContatosIP67/FormularioContatoViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				4C90BA062241C33A005A558E /* Contato.m */,
 				4C90BA092241CFAE005A558E /* ContatoDao.swift */,
 				4CC8D6962245A36C00ADAFBB /* GerenciadorDeAcoes.swift */,
+				4C674A8E224C352E00284470 /* CoreDataUtil.swift */,
 			);
 			name = Models;
 			path = ..;
@@ -278,6 +281,7 @@
 				4CFB26352244653500EAF22C /* protocols.swift in Sources */,
 				4C90BA0A2241CFAE005A558E /* ContatoDao.swift in Sources */,
 				4C08465B2243016D00576C04 /* ListaContatosViewController.swift in Sources */,
+				4C674A8F224C352E00284470 /* CoreDataUtil.swift in Sources */,
 				4C90B9F62241AFCB005A558E /* ContatosIP67.xcdatamodeld in Sources */,
 				4C90B9EE2241AFCB005A558E /* AppDelegate.swift in Sources */,
 			);
