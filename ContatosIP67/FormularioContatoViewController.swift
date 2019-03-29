@@ -85,11 +85,12 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
                 self.latitude.text = coordenada.latitude.description
                 self.longitude.text = coordenada.longitude.description
                 
+                self.loading.stopAnimating()
+                sender.isEnabled = true
+
             }
         }
         
-        self.loading.stopAnimating()
-        sender.isEnabled = true
     }
     
     
