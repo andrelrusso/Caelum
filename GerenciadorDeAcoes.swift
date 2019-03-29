@@ -33,7 +33,10 @@ class GerenciadorDeAcoes: NSObject {
         let exibirSiteDoContato = UIAlertAction(title: "Visualizar Site", style: .default){ action in
             self.abrirNavegador()
         }
-        
+        let exibirTemperatura = UIAlertAction(title: "Visualizar Clima", style: .default){ action in
+            self.exibirTemperatura()
+        }
+        alertView.addAction(exibirTemperatura)
         alertView.addAction(cancelar)
         alertView.addAction(ligarParaContato)
         alertView.addAction(exibirContatoNoMapa)
@@ -82,4 +85,13 @@ class GerenciadorDeAcoes: NSObject {
             .shared
             .open(URL(string: url)!, options: [:],completionHandler: nil)
     }
+    
+    private func exibirTemperatura(){
+        let temperaturaViewController = controller.storyboard?.instantiateViewController(withIdentifier: "temperaturaViewController") as! TemperaturaViewController
+        
+        temperaturaViewController.contato = self.contato
+        
+        controller.navigationController?.pushViewController(temperaturaViewController, animated: true)
+    }
+    
 }

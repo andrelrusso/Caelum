@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GerenciadorDeAcoes.swift"
-            timestampString = "574993490.648463"
+            timestampString = "575511856.991689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "ligar()"
             landmarkType = "7">
          </BreakpointContent>
