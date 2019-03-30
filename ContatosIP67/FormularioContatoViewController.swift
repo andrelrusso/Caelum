@@ -70,6 +70,8 @@ class FormularioContatoViewController: UIViewController, UINavigationControllerD
                 nil)
             alert.addAction(acao)
             self.present(alert, animated: true, completion: nil)
+            self.loading.stopAnimating()
+            sender.isEnabled = true
             return
         }
         
